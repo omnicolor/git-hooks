@@ -8,6 +8,12 @@
 @color3: #e8caa4;
 @color4: #cc2a41;
 
+/* Sticky note colors */
+@stickyColor: #ffffcc;
+@bigStickySize: 6em;
+@smallStickyHeight: 3em;
+@smallStickyWidth: 7em;
+
 * {
     box-sizing: border-box;
     font-family: Monda;
@@ -53,4 +59,134 @@
 .about-me ul {
     list-style: none;
     margin-top: -.25em;
+}
+
+.git-workflow .big-sticky {
+    background-color: @stickyColor;
+    border: 1px solid #000000;
+    font-size: 150%;
+    height: @bigStickySize - 1;
+    left: 50%;
+    margin-top: -0.5 * @bigStickySize;
+    padding: .4em;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    width: @bigStickySize - 1;
+    z-index: 3;
+}
+
+.bottom-row {
+    margin-top: @bigStickySize - 3.5;
+}
+
+.top-row {
+    margin-top: -1.5 * @bigStickySize;
+}
+
+.git-workflow .rebase {
+    margin-left: -2.5 * @bigStickySize;
+    .top-row;
+}
+
+.git-workflow .merge {
+    margin-left: -1.25 * @bigStickySize;
+    .top-row;
+}
+
+.git-workflow .commit {
+    margin-left: 0.25 * @bigStickySize;
+    .top-row;
+}
+
+.git-workflow .clone {
+    margin-left: -3 * (@bigStickySize);
+}
+
+.git-workflow .work {
+    background-color: #ffffff;
+    margin-left: -1.75 * @bigStickySize;
+}
+
+.git-workflow .add {
+    margin-left: -0.5 * @bigStickySize;
+}
+
+.git-workflow .push {
+    margin-left: 0.75 * @bigStickySize;
+}
+
+.git-workflow .checkout {
+    margin-left: -2.25 * @bigStickySize;
+    .bottom-row;
+}
+
+.git-workflow .pull {
+    margin-left: -1 * @bigStickySize;
+    .bottom-row;
+}
+
+.git-workflow .receive {
+    background-color: lighten(grey, 20%);
+    margin-left: 2 * @bigStickySize;
+    margin-top: -1 * @bigStickySize;
+}
+
+.git-workflow .update {
+    background-color: lighten(grey, 20%);
+    margin-left: 2 * @bigStickySize;
+    margin-top: 0.25 * @bigStickySize;
+}
+
+.git-workflow .small-sticky {
+    background-color: darken(@stickyColor, 30%);
+    border: 1px solid #000000;
+    bottom: -1em;
+    font-size: 70%;
+    height: @smallStickyHeight;
+    position: absolute;
+    text-align: center;
+    width: @smallStickyWidth;
+    z-index: 5;
+}
+
+.git-workflow .pre-commit,
+.git-workflow .pre-rebase {
+    left: -2.5em;
+}
+
+.git-workflow .pre-commit {
+    bottom: 2em;
+}
+
+.git-workflow .prepare-commit-msg {
+    bottom: .25em;
+    left: -3em;
+}
+
+.git-workflow .commit-msg {
+    bottom: -2em;
+    left: -3.5em;
+}
+
+.git-workflow .post-commit {
+    right: -4.5em;
+}
+
+.git-workflow .post-merge {
+    right: -1em;
+}
+
+.git-workflow .post-checkout {
+    right: -2.5em;
+}
+
+.git-workflow .pre-receive {
+    left: -3.25em;
+    width: 6em;
+}
+
+.git-workflow .post-receive {
+    right: -3.25em;
+    width: 6em;
 }
