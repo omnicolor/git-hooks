@@ -50,6 +50,31 @@
     color: @color0;
 }
 
+.deck-status,
+.slide::after {
+    bottom: 0;
+    color: @color2;
+    font-size: 120%;
+    position: fixed;
+    z-index: 9;
+}
+
+.deck-status {
+    right: 1em;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+// Hide the footer title on the title page
+.slide.title::after {
+    content: "";
+}
+
+.slide::after {
+    content: "Git Hooked on Git Hooks - Omni Adams";
+    left: 1em;
+}
+
 .about-me div {
     margin-left: -15em;
     margin-top: -155px;
