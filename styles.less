@@ -12,7 +12,7 @@
 @stickyColor: #ffffcc;
 @bigStickySize: 6em;
 @smallStickyHeight: 3em;
-@smallStickyWidth: 7em;
+@smallStickyWidth: 6em;
 
 @font-face {
     font-family: Chau;
@@ -26,6 +26,13 @@
     font-style: normal;
     font-weight: normal;
     src: url('fonts/Peralta-Regular.ttf');
+}
+
+@font-face {
+    font-family: Devonshire;
+    font-style: normal;
+    font-weight: normal;
+    src: url('fonts/Devonshire-Regular.ttf');
 }
 
 * {
@@ -127,11 +134,12 @@
 .git-workflow .big-sticky {
     background-color: @stickyColor;
     border: 1px solid #000000;
+    font-family: Devonshire;
     font-size: 150%;
     height: @bigStickySize - 1;
     left: 50%;
     margin-top: -0.5 * @bigStickySize;
-    padding: .4em;
+    padding: .5em;
     position: absolute;
     text-align: center;
     top: 50%;
@@ -144,7 +152,7 @@
 }
 
 .top-row {
-    margin-top: -1.5 * @bigStickySize;
+    margin-top: -1.4 * @bigStickySize;
 }
 
 .git-workflow .rebase {
@@ -204,13 +212,16 @@
 .git-workflow .small-sticky {
     background-color: darken(@stickyColor, 30%);
     border: 1px solid #000000;
-    bottom: -1em;
+    bottom: -0.2em;
+    font-family: Devonshire;
     font-size: 70%;
     height: @smallStickyHeight;
+    line-height: 18px;
+    padding-top: 16px;
     position: absolute;
     text-align: center;
     width: @smallStickyWidth;
-    z-index: 5;
+    z-index: 9;
 }
 
 .git-workflow .pre-commit,
@@ -219,17 +230,17 @@
 }
 
 .git-workflow .pre-commit {
-    bottom: 2em;
+    bottom: 1.8em;
 }
 
 .git-workflow .prepare-commit-msg {
-    bottom: .25em;
-    left: -3em;
+    bottom: .35em;
+    left: -3.2em;
 }
 
 .git-workflow .commit-msg {
-    bottom: -2em;
-    left: -3.5em;
+    bottom: -1.5em;
+    left: -3.9em;
 }
 
 .git-workflow .post-commit {
