@@ -137,7 +137,22 @@
         <div class="small-sticky pre-receive">Pre-receive</div>
         <div class="small-sticky post-receive">Post-receive</div>
     </div>
-    <div class="big-sticky update">Update</div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <ul class="note">
+        <li>There's a bunch of different places you can add hooks</li>
+        <li>Here's a diagram of common actions in git</li>
+        <li>along with the hooks for each step</li>
+        <li>The white box is where you do your work</li>
+        <li>Yellowish boxen are git commands that you execute on locally</li>
+        <li>Gray boxen happen on the server</li>
+        <li>Finally, bright yellow boxen are where the git hooks happen</li>
+        <li>Git hooks on the left of the action happen before it</li>
+        <li>things on the right happen after it</li>
+        <li>And update is a weird case</li>
+    </ul>
 </section>
 
 <p class="deck-status">
