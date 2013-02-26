@@ -235,6 +235,59 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout highlight">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <ul class="note">
+        <li>Next up is the post-checkout hook</li>
+        <li>Any of y'all use lots of branches</li>
+        <li>and frequently switch between them?</li>
+        <li>post-checkout lets you reboot your &rarr; universe</li>
+    </ul>
+</section>
+
+<section class="slide universe">
+    <img alt="http://imgur.com/gallery/lxHqF" class="centered"
+            src="images/in-the-beginning.jpg">
+    <ul class="note">
+        <li>For example, if you have config files that aren't checked in</li>
+        <li>and are different for different branches</li>
+        <li>the post-checkout hook can do that</li>
+        <li>Or if you use compiled JS or CSS, you can immediately recompile</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
