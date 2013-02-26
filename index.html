@@ -288,6 +288,62 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge highlight">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <ul class="note">
+        <li>The post-merge hook gets run after a successful merge</li>
+        <li>And by successful I mean, no errors</li>
+        <li>That doesn't mean the code itself is good</li>
+        <li>Especially if you have junior &rarr; developers</li>
+    </ul>
+</section>
+
+<section class="slide merge-conflict">
+    <img alt="http://chuva-inc.com/sites/default/files/blog_posts/356merge-conflicts.jpg"
+            class="centered"
+            src="http://chuva-inc.com/sites/default/files/blog_posts/356merge-conflicts.jpg">
+    <ul class="note">
+        <li>developers ... on your team</li>
+        <li>After all, git won't complain about leaving the conflict in</li>
+        <li>You can git pull and see there's a conflict</li>
+        <li>then without editing the file git add and commit it</li>
+        <li>And yes, I've had a teammate do that</li>
+        <li>So you might want to run lint on your project after merging</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
