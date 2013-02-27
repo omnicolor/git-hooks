@@ -650,6 +650,63 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive highlight">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <ul class="note">
+        <li>The first of the server hooks is pre-receive</li>
+        <li>This hook is the most powerful in my opinion</li>
+        <li>git runs this when someone is pushing to it</li>
+        <li>exiting with a non-zero code rejects the entire push</li>
+        <li>This means that you can use pre-receive &rarr; as a bouncer</li>
+    </ul>
+</section>
+
+<section class="slide bouncer">
+    <img alt="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2009/9/15/1253005192978/Patrick-Swayze-in-Road-Ho-026.jpg"
+            class="centered" src="images/road-house.jpg">
+    <ul class="note">
+        <li>... as a bouncer</li>
+        <li>And your bouncer can be as picky as you want it to be</li>
+        <li>It can run lint to make sure there's no syntax errors</li>
+        <li>It can run unit tests and reject a push if they fail</li>
+        <li>It can run PHPCS and reject code that doesn't meet style...</li>
+        <li>Basically anything that you want to keep out of your codebase</li>
+        <li>and can programatically searched for can be rejected here</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
