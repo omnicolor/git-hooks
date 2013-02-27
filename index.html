@@ -561,6 +561,95 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <div class="dividing-line"></div>
+    <ul class="note">
+        <li>That's all for the client-side hooks</li>
+        <li>The biggest problem with client side hooks are that</li>
+        <li>developers have to install them</li>
+        <li>And they can turn them off or change them at any time</li>
+        <li>No real way for the server to know they've done so</li>
+        <li>To the right of this dividing line, are server-side hooks</li>
+        <li>Since these are installed on the bare repo</li>
+        <li>devs can't avoid them</li>
+    </ul>
+</section>
+
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <div class="dividing-line"></div>
+    <ul class="note">
+        <li>This line is a bit arbitrary though since git is distributed</li>
+        <li>any repo can receive pushes from any other</li>
+        <li>Many companies have a central git repo that is the real master</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
