@@ -737,6 +737,59 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook highlight">Update</div>
+    </div>
+    <ul class="note">
+        <li>Finally, there's the update hook</li>
+        <li>While it sounds very useful</li>
+        <li>it's a little less useful in practice</li>
+        <li>It's like &rarr; mini-pre-receive</li>
+    </ul>
+</section>
+
+<section class="slide mini-me">
+    <img alt="http://rollinspsychtips.blogspot.com/2012/06/get-rid-of-mini-me-algorithm.html"
+            class="centered" src="images/minime.jpg">
+    <ul class="note">
+        <li>... mini-pre-receive</li>
+        <li>Where pre-receive looks at the entire push</li>
+        <li>and accepts or rejects the whole push</li>
+        <li>update runs once for each branch the user is pushing to</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
