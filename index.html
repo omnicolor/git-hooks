@@ -874,6 +874,31 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="cli">    $ mkdir hooks
+    $ cd hooks
+    $ git init
+    Initialized empty Git repository in /Users/Omni/Code/hooks/.git/
+    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ ls</pre>
+    <ul class="note">
+        <li>Which has nothing in it</li>
+        <li>Or does &rarr; it</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ ls -A
+    <span class="directory">.git</span>/
+    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ ls -A .git
+    HEAD         description  <span class="directory">info</span>/        <span class="directory">refs</span>/
+    config       <span class="directory">hooks</span>/       <span class="directory">objects</span>/</pre>
+    <ul class="note">
+        <li>There's a hidden directory that holds all of git's stuff</li>
+        <li>It looks pretty similar to the directories in a bare repo</li>
+        <li>And again, it has the hooks directory</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
