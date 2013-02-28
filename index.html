@@ -934,6 +934,19 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>Here I'm writing two lines to a file and making it executable</li>
         <li>Then I try to commit a file</li>
         <li>you can see the git hook doesn't accept it</li>
+</section>
+
+<section class="slide lint">
+    <img alt="http://commons.wikimedia.org/wiki/File:Navel_lint_ball.jpg"
+            class="centered" src="images/belly-lint.jpg">
+    <ul class="note">
+        <li>Let's write a quick hook that runs PHP lint on the project</li>
+        <li>when you try to commit</li>
+        <li>and rejects the commit if things are broken</li>
+        <li>Our earlier hook was written in bash</li>
+        <li>You can write it in whatever you want</li>
+        <li>Since this is a PHP conference I'll use PHP</li>
+        <li>First, let's rewrite the earlier hook in PHP</li>
     </ul>
 </section>
 
