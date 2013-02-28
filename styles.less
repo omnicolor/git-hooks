@@ -53,6 +53,25 @@
     padding: 0;
 }
 
+.slide pre {
+    border: 0;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.slide.smaller pre {
+    font-size: 110%;
+}
+
+.slide.even-smaller pre {
+    font-size: 90%;
+}
+
+.slide pre.no-bottom {
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+
 .centered {
     left: 50%;
     position: absolute;
@@ -381,4 +400,16 @@
 
 .hooked .hooked {
     color: @color3;
+}
+
+.background div {
+    bottom: 0;
+    color: @color3;
+    font-size: 400%;
+    left: 0;
+    position: absolute;
+}
+
+.doin-it-rong img {
+    margin-left: -774px / 2;
 }

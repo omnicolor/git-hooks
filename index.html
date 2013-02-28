@@ -805,6 +805,60 @@
     </ul>
 </section>
 
+<section class="slide background">
+    <div>background</div>
+    <ul class="note">
+        <li>Where can you find the hooks?</li>
+        <li>That depends on whether you're using a normal or bare repo</li>
+        <li>For those of you that don't know about bare repositories</li>
+        <li>they special repositories meant for pushing</li>
+        <li>as opposed to your normal git repositories</li>
+        <li>that are meant for pulling</li>
+        <li>If you try to push to a normal repository</li>
+        <li>that has is using the branch you're pushing to</li>
+        <li>you'll see something like &rarr; this</li>
+    </ul>
+</section>
+
+<section class="slide even-smaller">
+    <pre class="cli no-bottom">
+remote: error: refusing to update checked out branch: refs/heads/master
+remote: error: By default, updating the current branch in a non-bare repository
+remote: error: is denied, because it will make the index and work tree inconsistent
+remote: error: with what you pushed, and will require 'git reset --hard' to match
+remote: error: the work tree to HEAD.
+remote: error:
+remote: error: You can set 'receive.denyCurrentBranch' configuration variable to
+remote: error: 'ignore' or 'warn' in the remote repository to allow pushing into
+remote: error: its current branch; however, this is not recommended unless you
+remote: error: arranged to update its work tree to match what you pushed in some
+remote: error: other way.
+remote: error:
+remote: error: To squelch this message and still keep the default behaviour, set
+remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.
+To /Users/Omni/code/hooks-test
+ ! [remote rejected] master -&gt; master (branch is currently checked out)
+error: failed to push some refs to '/Users/Omni/code/hooks-test'
+    </pre>
+    <ul class="note">
+        <li>You don't need to try to read it all</li>
+        <li>In fact, you probably shouldn't</li>
+        <li>basically, what it's saying is that you're &rarr; doin'</li>
+    </ul>
+</section>
+
+<section class="slide doin-it-rong">
+    <img alt="http://knowyourmeme.com/photos/2626" class="centered"
+            src="images/doing-it-wrong.jpg">
+    <ul class="note">
+        <li>doin' ... it rong</li>
+        <li>Basically git is saying that someone's working there</li>
+        <li>so don't mess with it</li>
+        <li>But I push all the time and never see that you say?</li>
+        <li>That's where a bare repo comes in</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
