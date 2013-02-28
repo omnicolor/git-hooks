@@ -916,6 +916,27 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="cli">    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ cat &gt; .git/hooks/pre-commit
+    echo 'You FAIL'
+    exit 1^D
+    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ chmod +x .git/hooks/pre-commit
+    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ touch foo
+    <span class="repo">hooks</span>(<span class="dirty">1</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ git add foo
+    <span class="repo">hooks</span>(<span class="dirty">1</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ git status -s
+    <span class="dirty">A</span>  foo
+    <span class="repo">hooks</span>(<span class="dirty">1</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ git commit
+    You FAIL
+    <span class="repo">hooks</span>(<span class="dirty">1</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ git status -s
+    <span class="dirty">A</span>  foo</pre>
+    <ul class="note">
+        <li>There's nothing inherently magical about git hooks</li>
+        <li>Here I'm writing two lines to a file and making it executable</li>
+        <li>Then I try to commit a file</li>
+        <li>you can see the git hook doesn't accept it</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
