@@ -899,6 +899,23 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="cli">
+    <span class="repo">hooks</span>(<span class="dirty">0</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ ls .git/hooks
+    <span class="executable">applypatch-msg.sample</span>*     <span class="executable">pre-commit.sample</span>*
+    <span class="executable">commit-msg.sample</span>*         <span class="executable">pre-rebase.sample</span>*
+    <span class="executable">post-update.sample</span>*        <span class="executable">prepare-commit-msg.sample</span>*
+    <span class="executable">pre-applypatch.sample</span>*     <span class="executable">update.sample</span>*
+    </pre>
+    <ul class="note">
+        <li>Git has created a bunch of sample hooks for us</li>
+        <li>If we just wanted to use one of those, we can rename it</li>
+        <li>and remove the .sample extension</li>
+        <li>Or we can create a new file with the name of the hook</li>
+        <li>and make it executable</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
