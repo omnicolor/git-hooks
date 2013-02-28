@@ -20,6 +20,8 @@ $(function() {
         hashPrefix: 'slide-',
         preventFragmentScroll: true
     });
+
+    prettyPrint();
 });
 
 
