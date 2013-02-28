@@ -678,6 +678,65 @@
     </ul>
 </section>
 
+<section class="slide git-workflow">
+    <div class="big-sticky clone">Clone</div>
+    <div class="big-sticky checkout">
+        Checkout
+        <div class="small-sticky post-checkout">Post-checkout</div>
+    </div>
+    <div class="big-sticky merge">
+        Merge
+        <div class="small-sticky post-merge">Post-merge</div>
+    </div>
+    <div class="big-sticky add">Add</div>
+    <div class="big-sticky commit">
+        Commit
+        <div class="small-sticky post-commit">Post-commit</div>
+        <div class="small-sticky pre-commit">Pre-commit</div>
+        <div class="small-sticky prepare-commit-msg">Prepare-commit-message</div>
+        <div class="small-sticky commit-msg">Commit-msg</div>
+    </div>
+    <div class="big-sticky push">Push</div>
+    <div class="big-sticky pull">Pull</div>
+    <div class="big-sticky rebase">
+        Rebase
+        <div class="small-sticky pre-rebase">Pre-rebase</div>
+    </div>
+    <div class="big-sticky work">Work</div>
+    <div class="big-sticky receive">
+        Receive
+        <div class="small-sticky pre-receive">Pre-receive</div>
+        <div class="small-sticky post-receive highlight">Post-receive</div>
+    </div>
+    <div class="big-sticky update">
+        Update
+        <div class="small-sticky update-hook">Update</div>
+    </div>
+    <ul class="note">
+        <li>The penultimate hook is the post-receive hook</li>
+        <li>This runs after code has been accepted by git</li>
+        <li>Exiting non-zero has no effect here</li>
+        <li>But you can do things like build documentation</li>
+        <li>or upload the new code to a QA server or production</li>
+        <li>With just pre-receive and post-receive</li>
+        <li>you can hack together a continuous integration server</li>
+        <li>Most of the things you'd want to do here</li>
+        <li>you *can* do manually, but &rarr; you'll drive yourself crazy</li>
+    </ul>
+</section>
+
+<section class="slide fight-club">
+    <img alt="http://images.fanpop.com/images/image_uploads/Edward-in-Fight-Club-edward-norton-562432_1600_900.jpg"
+            class="centered" src="images/fight-club.jpg">
+    <ul class="note">
+        <li>... you'll drive yourself crazy</li>
+        <li>It turns out that computers are really good at repetitive tasks</li>
+        <li>they never get tired or miss a step</li>
+        <li>If you look at some of these hooks as ways of automating out BS</li>
+        <li>you can make your life as a developer so much better</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
