@@ -168,6 +168,7 @@
         <li>There are 3 hooks associated with this</li>
         <li>applyprepatch-msg, pre-applypatch, and post-applypatch</li>
         <li>I'm going to ignore them since the PHP community doesn't use them</li>
+        <li>But they work similiar to the ones I'm going to talk about</li>
     </ul>
 </section>
 
@@ -452,6 +453,7 @@
         <li>message ... before it gets edited</li>
         <li>So you might want to put the output of lint or phploc</li>
         <li>Or the status of unit tests</li>
+        <li>into the commit message, then let the developer add their message</li>
     </ul>
 </section>
 
@@ -504,6 +506,8 @@
         <li>or yourself in the foot</li>
         <li>If you require bug numbers in commit messages</li>
         <li>Or run a scan to keep profanity out</li>
+        <li>Or any checks that you want to run on what</li>
+        <li>the developer said about the commit</li>
         <li>You'd run that here</li>
     </ul>
 </section>
@@ -546,7 +550,9 @@
         <li>Next up is post-commit</li>
         <li>It's too late to stop the commit</li>
         <li>But you can rebuild documentation</li>
-        <li>or your ctags or whatever</li>
+        <li>or rerun ctags or whatever</li>
+        <li>Any kind of process that you want to run locally fairly often</li>
+        <li>But not stop the commit if it fails can go here</li>
     </ul>
 </section>
 
@@ -600,10 +606,11 @@
     <div class="dividing-line"></div>
     <ul class="note">
         <li>That's all for the client-side hooks</li>
-        <li>The biggest problem with client side hooks are that</li>
+        <li>The biggest problem with &quot;client side hooks&quot; is that</li>
         <li>developers have to install them</li>
         <li>And they can turn them off or change them at any time</li>
         <li>No real way for the server to know they've been run</li>
+        <li>and thus can trust the push</li>
         <li>To the right of this dividing line, are server-side hooks</li>
         <li>Since these are installed on the bare repo</li>
         <li>devs can't avoid them</li>
@@ -807,6 +814,7 @@
         <li>And show some examples of how they work</li>
         <li>Then we'll write one</li>
         <li>The rest of this presentation will be much more technical</li>
+        <li>And much less light-hearted</li>
     </ul>
 </section>
 
@@ -954,6 +962,9 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>Hopefully you will want your hooks to do more</li>
         <li>than insult the user
         <li>and exit with an error code to block the action</li>
+        <li>Though it might be fun to do that randomly to annoy coworkers</li>
+        <li>For fun and profit</li>
+        <li>Then change it back when they come to complain</li>
     </ul>
 </section>
 
@@ -966,6 +977,7 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>and rejects the commit if things are broken</li>
         <li>Our earlier hook was written in bash</li>
         <li>You can write it in whatever you want</li>
+        <li>even Java if you have a beefy server and like slowing things down</li>
         <li>Since this is a PHP conference I'll use PHP</li>
         <li>First, let's rewrite the earlier hook in PHP</li>
     </ul>
