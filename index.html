@@ -1023,6 +1023,29 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    function getChangedFiles($hash) {
+        $cmd = 'git diff-index --cached --name-status ' . $hash . ' | '
+            . 'grep -E "^(A|M)" | '
+            . 'cut -f2';
+        exec($cmd, $files);
+        return $files;
+    }</pre>
+    <ul class="note">
+        <li>Then we use the hash from getCurrentHash to get a list of files</li>
+        <li>git diff-index is like what you get when you run git status</li>
+        <li>But easier to parse programatically</li>
+        <li>Instead of saying New File or Modified or Deleted</li>
+        <li>It uses single letter A, M, or D</li>
+        <li>This script doesn't care about any lint errors in deleted file</li>
+        <li>Since the dead can't hurt you</li>
+        <li>So we only look for Added or Modified files</li>
+        <li>Note that this returns all of the files added or changed in the commit</li>
+        <li>not just PHP files</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
