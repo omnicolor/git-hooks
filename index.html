@@ -997,6 +997,32 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide code">
+    <pre class="prettyprint no-bottom">
+    function getCurrentHash() {
+        exec('git rev-parse --verify HEAD', $unused, $ret);
+
+        if (0 !== $ret) {
+            return '4b825dc642cb6eb9a060e54bf8d69288fbee4904';
+        }
+
+        return 'HEAD';
+    }</pre>
+    <ul class="note">
+        <li>We're going to split this hook out into a bunch of functions</li>
+        <li>In reality I'd package this as a class and unit test it</li>
+        <li>But these small functions are pretty easy to put on slides</li>
+        <li>This first function tries to figure out what to compare to</li>
+        <li>First, rev-parse is kind of a magical git command</li>
+        <li>It's meant for git commands to use to figure out parameters</li>
+        <li>In this case, we're going to use it to see if HEAD is valid</li>
+        <li>If rev-parse returns an error exit code, we must be at 1<sup>st</sup> commit</li>
+        <li>So we use the hash for an empty repo, which you should know by heart</li>
+        <li>Say it with me 4b825dc... just kidding.</li>
+        <li>But knowing the first chunk will help you recognize it</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
