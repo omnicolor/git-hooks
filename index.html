@@ -619,7 +619,8 @@
         <li>any repo can receive pushes from any other</li>
         <li>Many companies have a central git repo that is the real master</li>
         <li>In which case this division makes sense</li>
-
+        <li>But if you're using git more like old school kernel hackers</li>
+        <li>this line isn't so clear</li>
     </ul>
 </section>
 
@@ -789,6 +790,8 @@
         <li>Where pre-receive looks at the entire push</li>
         <li>and accepts or rejects the whole push</li>
         <li>update runs once for each branch the user is pushing to</li>
+        <li>so you can reject individual references</li>
+        <li>while letting others through</li>
     </ul>
 </section>
 
@@ -857,6 +860,9 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>so don't mess with it</li>
         <li>But I push all the time and never see that you say?</li>
         <li>That's where a bare repo comes in</li>
+        <li>Most of the git repos (like GitHub) use base repos</li>
+        <li>So if you can clone from it, you can push to it</li>
+        <li>Assuming you have permission, which is another subject</li>
     </ul>
 </section>
 
@@ -898,6 +904,15 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>There's a hidden directory that holds all of git's stuff</li>
         <li>It looks pretty similar to the directories in a bare repo</li>
         <li>And again, it has the hooks directory</li>
+        <li>Also, notice that my prompt changed</li>
+        <li>I've got it set up to show the repo's name and then 3 numbers</li>
+        <li>Dirty, ahead, and behind</li>
+        <li>Dirty is the number of files changed but not committed</li>
+        <li>Ahead is the number of commits that I haven't pushed</li>
+        <li>And behind is the number of commits that others have pushed</li>
+        <li>that I haven't pulled</li>
+        <li>I have a cron that runs every five minutes on my work repos</li>
+        <li>that update this with git fetch</li>
     </ul>
 </section>
 
