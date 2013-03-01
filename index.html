@@ -1090,6 +1090,23 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>And then run lint on the changed files</li>
         <li>If we have any errors, we display them and exit with an error</li>
         <li>Otherwise we print a nice message and exit</li>
+        <li>If you try to commit a broken file, you'll see something like</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="cli">
+    <span class="repo">hooks</span>(<span class="dirty">2</span><span class="ahead">0</span><span class="behind">0</span>) <span class="directory">/</span>$ git commit
+    Poking your belly for lint...
+    Ugh, that's gross:
+
+        Parse error: syntax error, unexpected '&lt;' in broken.php on line 3
+
+        Errors parsing broken.php
+    </pre>
+    <ul class="note">
+        <li>The commit will not go through</li>
+        <li>and the developer will hopefully see the error of his ways</li>
     </ul>
 </section>
 
