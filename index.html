@@ -1191,6 +1191,33 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint no-bottom">
+    function loadFilesFromGit($hash, $tmpDir, $files) {
+        foreach ($files as $filename) {
+            $id = shell_exec('git diff-index --cached ' . $hash . ' '
+                . '| grep ' . $filename);
+            if ('' == $id) continue;
+            $id = explode(' ', $id);
+            $id = $id[2];
+            $file = shell_exec('git cat-file blob ' . $id);
+            $filename = $tmpDir . DIRECTORY_SEPARATOR . $filename;
+            if (!file_exists(dirname($filename)))
+                mkdir(dirname($filename), 0777, true);
+            file_put_contents($filename, $file);
+        }
+    }</pre>
+    <ul class="note">
+        <li>Now, we have to pull out the changed files</li>
+        <li>to a temporary directory</li>
+        <li>git diff-index is a git command to compare blobs in the repo</li>
+        <li>It basically returns the hash of a given file</li>
+        <li>We then pass that ID to git cat-file to pull out that actual file</li>
+        <li>We then create something like the working directory</li>
+        <li>in a temporary place and only containing the changed files</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
