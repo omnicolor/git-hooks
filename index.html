@@ -1124,6 +1124,46 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    function getCommitInfo() {
+        $args = file_get_contents('php://stdin');
+        $argv = explode(' ', $args);
+        list($old, $new, $branch) = $argv;
+        $branch = trim(str_replace('refs/heads/', null, $branch));
+        return array($old, $new, $branch);
+    }
+    </pre>
+    <ul class="note">
+        <li>Now we're going to do the exact same thing on the server</li>
+        <li>in a pre-receive hook</li>
+        <li>to show how different it is in a different environment</li>
+        <li>The first difference is the git environment</li>
+        <li>When you ran it locally, git knew what branch you were on</li>
+        <li>and what commit you had started with</li>
+        <li>Here we need to be a bit smarter since the dev could be on any branch</li>
+        <li>and could be starting anywhere</li>
+    </ul>
+</section>
+
+<section class="slide">
+    <pre class="prettyprint">
+    function getCommitInfo() {
+        $args = file_get_contents('php://stdin');
+        list($old, $new, $branch) = explode(' ', $args);
+        $branch = trim(str_replace('refs/heads/', null, $branch));
+        return array($old, $new, $branch);
+    }
+    </pre>
+    <ul class="note">
+        <li>At the beginning we need to figure out that basic information</li>
+        <li>pre-receive is given three things on the command line</li>
+        <li>The starting hash, the new hash, and the branch they're on</li>
+        <li>This little function takes in the standard in stream</li>
+        <li>and parses out that data</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
