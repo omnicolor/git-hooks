@@ -1191,6 +1191,24 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 </section>
 
 <section class="slide">
+    <pre class="prettyprint">
+    function getTempDirectory() {
+        $tmpfile = tempnam(sys_get_temp_dir(), '');
+        unlink($tmpfile);
+        mkdir($tmpfile);
+        return $tmpfile;
+    }</pre>
+    <ul class="note">
+        <li>We also need a temporary directory to hold all of this stuff</li>
+        <li>When we ran this pre-commit, we had the working copy</li>
+        <li>There is no working copy on the server, so we need a place to put it</li>
+        <li>And any number of developers can be trying to push at the same time</li>
+        <li>We'll use tempnam to get a unique temporary file name</li>
+        <li>delete it, then create a directory with that name</li>
+    </ul>
+</section>
+
+<section class="slide">
     <pre class="prettyprint no-bottom">
     function loadFilesFromGit($hash, $tmpDir, $files) {
         foreach ($files as $filename) {
