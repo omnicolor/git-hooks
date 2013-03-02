@@ -1219,7 +1219,7 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 
 <section class="slide">
     <pre class="prettyprint no-bottom">
-    function lintFiles($files, $tmpDir) {
+    function lint($files, $tmpDir) {
         $errors = array();
         foreach ($files as $file) {
             $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
