@@ -1164,6 +1164,33 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">
+    function getChangedFiles($hashes) {
+        $hash = escapeshellarg($hash);
+        $files = shell_exec('git show --pretty="format:" --name-only '
+            . $hashes);
+        $files = explode(PHP_EOL, trim($files));
+        $files = array_unique($files);
+        foreach ($files as $key =&gt; $file) {
+            if ('' == $file || false === strpos($file, '.php')) {
+                unset($files[$key]);
+            }
+        }
+        return $files;
+    }
+    </pre>
+    <ul class="note">
+        <li>Then, given the information we figured out earlier</li>
+        <li>we need to figure out what files were changed</li>
+        <li>We'll take the starting and ending hashes</li>
+        <li>and pass them to git show to pull out their names</li>
+        <li>A apush can have a bunch of commits</li>
+        <li>and those commits can all include the same file</li>
+        <li>so we unique the array, then remove empty lines and non-PHP files</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
