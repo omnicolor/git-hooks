@@ -1218,6 +1218,30 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint no-bottom">
+    function lintFiles($files, $tmpDir) {
+        $errors = array();
+        foreach ($files as $file) {
+            $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
+            if (false === strpos($file, '.php') || !file_exists($file))
+                continue;
+            exec('php -l ' . $file . ' 2&gt;/dev/null', $output, $ret);
+            if (!$ret)
+                continue;
+            $errors = array_merge($errors, $output);
+        }
+        return $errors;
+    }</pre>
+    <ul class="note">
+        <li>The lint function is basically what we had before</li>
+        <li>execpt now we've added a directory argument</li>
+        <li>and added a check to see if the file exists</li>
+        <li>since getChangedFiles() doesn't differentiate between modified</li>
+        <li>and deleted</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
