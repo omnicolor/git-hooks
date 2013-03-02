@@ -1182,9 +1182,9 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     <ul class="note">
         <li>Then, given the information we figured out earlier</li>
         <li>we need to figure out what files were changed</li>
-        <li>We'll take the starting and ending hashes</li>
+        <li>We'll take a hash range, which is old dot dot new</li>
         <li>and pass them to git show to pull out their names</li>
-        <li>A apush can have a bunch of commits</li>
+        <li>A push can have a bunch of commits</li>
         <li>and those commits can all include the same file</li>
         <li>so we unique the array, then remove empty lines and non-PHP files</li>
     </ul>
