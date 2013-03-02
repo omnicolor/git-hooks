@@ -1241,6 +1241,34 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint no-bottom">
+    echo 'Poking your belly for lint...', PHP_EOL;
+    list($old, $new, $branch) = getCommitInfo();
+    $combinedHash = $old . '..' . $new;
+    $tmpDir = getTempDirectory();
+    $files = getChangedFiles($combinedHash);
+    loadFilesFromGit($new, $tmpDir, $files);
+    $errors = lint($files, $tmpDir);
+    if (!empty($errors)) {
+        echo 'Ugh, that\'s gross:', PHP_EOL . '    ',
+            implode(PHP_EOL . '    ', $errors), PHP_EOL;
+        exit(1);
+    }
+    echo 'Ahh... nice and clean.', PHP_EOL;
+    exit(0);</pre>
+    <ul class="note">
+        <li>The actual hook is a little bit different from the pre-commit</li>
+        <li>First we parse the input into the hashes we need</li>
+        <li>We create the hash range</li>
+        <li>we use that to pull those files</li>
+        <li>out of git into a temporary directory</li>
+        <li>then finally we run lint on those files</li>
+        <li>So the process is similar to what we did before</li>
+        <li>but a bit more complicated</li>
+    </ul>
+</section>
+
 <p class="deck-status">
 	<span class="deck-status-current"></span>
 	/
