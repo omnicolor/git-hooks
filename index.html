@@ -809,10 +809,10 @@
     <div class="hooked">hooked</div>
     <ul class="note">
         <li>That's all of the hooks you have at your disposal</li>
-        <li>So how do you actual use git hooks</li>
+        <li>So how do you actually use git hooks</li>
         <li>First we'll talk briefly about how to enable them</li>
         <li>And show some examples of how they work</li>
-        <li>Then we'll write one</li>
+        <li>Then we'll write two short examples</li>
         <li>The rest of this presentation will be much more technical</li>
         <li>And much less light-hearted</li>
     </ul>
@@ -828,7 +828,7 @@
         <li>as opposed to your normal git repositories</li>
         <li>that are meant for pulling</li>
         <li>If you try to push to a normal repository</li>
-        <li>that has is using the branch you're pushing to</li>
+        <li>that is using the branch you're pushing to</li>
         <li>you'll see something like &rarr; this</li>
     </ul>
 </section>
@@ -885,6 +885,8 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     <ul class="note">
         <li>Creating a repository with git init --bare</li>
         <li>Puts a bunch of git stuff in there</li>
+        <li>config has some options like disabling non fast-forward</li>
+        <li>Description can be read by gitweb to show info about the repo</li>
         <li>Obviously the hooks directory is what we're interested in</li>
         <li>Compare that to creating a new normal repository</li>
     </ul>
@@ -1067,6 +1069,10 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         <li>Then we run lint on them</li>
         <li>If lint has a non-zero return code</li>
         <li>we add the error to our errors list</li>
+        <li>For those that don't know about exit codes</li>
+        <li>Unix uses zero for no problem</li>
+        <li>and non-zero for an error</li>
+        <li>different codes can mean different things</li>
     </ul>
 </section>
 
