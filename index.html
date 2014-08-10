@@ -877,7 +877,7 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 </section>
 
 <section class="slide">
-    <pre class="cli">    $ mkdir hooks-bare
+<pre class="cli">    $ mkdir hooks-bare
     $ cd hooks-bare
     $ git init --bare
     Initialized empty Git repository in /Users/Omni/Code/hooks-bare/
@@ -1030,8 +1030,8 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 <section class="slide">
     <pre class="prettyprint">
     function getChangedFiles($hash) {
-        $cmd = 'git diff-index --cached --name-status ' . $hash . ' | '
-            . 'grep -E "^(A|M)" | '
+        $cmd = 'git diff-index --cached --name-status ' . $hash
+            . ' | ' . 'grep -E "^(A|M)" | '
             . 'cut -f2';
         exec($cmd, $files);
         return $files;
@@ -1058,7 +1058,8 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
             if (false === strpos($file, '.php'))
                 continue;
             $file = escapeshellarg($file);
-            exec('php -l ' . $file . ' 2&gt;/dev/null', $output, $ret);
+            exec('php -l ' . $file . ' 2&gt;/dev/null',
+                $output, $ret);
             if (!$ret)
                 continue;
             $errors = array_merge($errors, $output);
@@ -1138,7 +1139,8 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
         $args = file_get_contents('php://stdin');
         $argv = explode(' ', $args);
         list($old, $new, $branch) = $argv;
-        $branch = trim(str_replace('refs/heads/', null, $branch));
+        $branch = str_replace('refs/heads/', null, $branch);
+        $branch = trim($branch);
         return array($old, $new, $branch);
     }
     </pre>
@@ -1159,7 +1161,8 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     function getCommitInfo() {
         $args = file_get_contents('php://stdin');
         list($old, $new, $branch) = explode(' ', $args);
-        $branch = trim(str_replace('refs/heads/', null, $branch));
+        $branch = str_replace('refs/heads/', null, $branch);
+        $branch = trim($branch);
         return array($old, $new, $branch);
     }
     </pre>
@@ -1176,14 +1179,14 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     <pre class="prettyprint no-bottom">
     function getChangedFiles($hashes) {
         $hash = escapeshellarg($hash);
-        $files = shell_exec('git show --pretty="format:" --name-only '
+        $files = shell_exec(
+            'git show --pretty="format:" --name-only '
             . $hashes);
         $files = explode(PHP_EOL, trim($files));
         $files = array_unique($files);
         foreach ($files as $key =&gt; $file) {
-            if ('' == $file || false === strpos($file, '.php')) {
+            if ('' == $file || false === strpos($file, '.php'))
                 unset($files[$key]);
-            }
         }
         return $files;
     }</pre>
@@ -1218,20 +1221,21 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 
 <section class="slide">
     <pre class="prettyprint no-bottom">
-    function loadFilesFromGit($hash, $tmpDir, $files) {
-        foreach ($files as $filename) {
-            $id = shell_exec('git diff-index --cached ' . $hash . ' '
-                . '| grep ' . $filename);
-            if ('' == $id) continue;
-            $id = explode(' ', $id);
-            $id = $id[2];
-            $file = shell_exec('git cat-file blob ' . $id);
-            $filename = $tmpDir . DIRECTORY_SEPARATOR . $filename;
-            if (!file_exists(dirname($filename)))
-                mkdir(dirname($filename), 0777, true);
-            file_put_contents($filename, $file);
-        }
-    }</pre>
+function loadFilesFromGit($hash, $tmpDir, $files) {
+    foreach ($files as $filename) {
+        $id = shell_exec('git diff-index --cached ' . $hash
+            . ' | grep ' . $filename);
+        if ('' == $id)
+            continue;
+        $id = explode(' ', $id);
+        $id = $id[2];
+        $file = shell_exec('git cat-file blob ' . $id);
+        $filename = $tmpDir . DIRECTORY_SEPARATOR . $filename;
+        if (!file_exists(dirname($filename)))
+            mkdir(dirname($filename), 0777, true);
+        file_put_contents($filename, $file);
+    }
+}</pre>
     <ul class="note">
         <li>Now, we have to pull out the changed files</li>
         <li>to a temporary directory</li>
@@ -1245,19 +1249,21 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
 
 <section class="slide">
     <pre class="prettyprint no-bottom">
-    function lint($files, $tmpDir) {
-        $errors = array();
-        foreach ($files as $file) {
-            $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
-            if (false === strpos($file, '.php') || !file_exists($file))
-                continue;
-            exec('php -l ' . $file . ' 2&gt;/dev/null', $output, $ret);
-            if (!$ret)
-                continue;
-            $errors = array_merge($errors, $output);
-        }
-        return $errors;
-    }</pre>
+function lint($files, $tmpDir) {
+    $errors = array();
+    foreach ($files as $file) {
+        $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
+        if (false === strpos($file, '.php'))
+            continue
+        if (!file_exists($file))
+            continue;
+        exec('php -l '.$file.' 2&gt;/dev/null', $output, $ret);
+        if (!$ret)
+            continue;
+        $errors = array_merge($errors, $output);
+    }
+    return $errors;
+}</pre>
     <ul class="note">
         <li>The lint function is basically what we had before</li>
         <li>execpt now we've added a directory argument</li>
