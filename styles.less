@@ -55,11 +55,6 @@
     font-size: 120%;
 }
 
-section.slide {
-    height: 730px;
-    min-height: 730px;
-}
-
 .slide ul,
 .slide li {
     padding: 0;
@@ -147,16 +142,8 @@ section.slide pre.cli * {
     float: right;
 }
 
-.deck-current ul.note {
-    bottom: 0;
-    font-size: 90%;
-    left: 0;
-    overflow: scroll;
-    margin: 0;
-    padding-left: 1em;
-    position: fixed;
-    right: 0;
-    top: 736px;
+.note {
+    display: none;
 }
 
 .slide {
@@ -175,10 +162,10 @@ section.slide pre.cli * {
 
 .deck-status,
 .slide::after {
+    bottom: 0;
     color: @color2;
     font-size: 120%;
     position: fixed;
-    top: 680px;
     z-index: 9;
 }
 
