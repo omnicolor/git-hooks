@@ -1000,6 +1000,25 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     </ul>
 </section>
 
+<section class="slide">
+    <pre class="prettyprint">    #!/bin/sh
+
+    NAME=$(git branch | grep &quot;*&quot; | sed &quot;s/* //&quot;)
+
+    echo &quot;Refs #$NAME:
+
+    +review CR-DT&quot; | cat - &quot;$1&quot; &gt; /tmp/out &amp;&amp; mv /tmp/out &quot;$1&quot;
+    </pre>
+    <ul class="note">
+        <li>Earlier I mentioned a prepare commit message hook that adds the branch</li>
+        <li>Here's that hook</li>
+        <li>We grab the list of git branches, grep for the one with an asterisk</li>
+        <li>and get rid of the asterisk and leading space</li>
+        <li>Then we echo that and the Crucible smart tag to automagically</li>
+        <li>create a review</li>
+    </ul>
+</section>
+
 <section class="slide code">
     <pre class="prettyprint no-bottom">
     function getCurrentHash() {
