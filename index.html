@@ -1243,12 +1243,15 @@ error: failed to push some refs to '/Users/Omni/code/hooks'</pre>
     <pre class="prettyprint no-bottom">
 function loadFilesFromGit($hash, $tmpDir, $files) {
     foreach ($files as $filename) {
+        // Get hash ID of file.
         $id = shell_exec('git diff-index --cached ' . $hash
             . ' | grep ' . $filename);
         if ('' == $id)
             continue;
         $id = explode(' ', $id);
         $id = $id[2];
+
+        // Pull file from repository.
         $file = shell_exec('git cat-file blob ' . $id);
         $filename = $tmpDir . DIRECTORY_SEPARATOR . $filename;
         if (!file_exists(dirname($filename)))
@@ -1275,10 +1278,12 @@ function lint($files, $tmpDir) {
         $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
         if (false === strpos($file, '.php'))
             continue
+        // Don't lint deleted files.
         if (!file_exists($file))
             continue;
         exec('php -l '.$file.' 2&gt;/dev/null', $output, $ret);
         if (!$ret)
+            // Ignore non-errors
             continue;
         $errors = array_merge($errors, $output);
     }
