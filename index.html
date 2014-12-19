@@ -1276,8 +1276,9 @@ function lint($files, $tmpDir) {
     $errors = array();
     foreach ($files as $file) {
         $file = $tmpDir . DIRECTORY_SEPARATOR . $file;
+        // Don't lint non-PHP files.
         if (false === strpos($file, '.php'))
-            continue
+            continue;
         // Don't lint deleted files.
         if (!file_exists($file))
             continue;
