@@ -454,8 +454,9 @@
     <ul class="note">
         <li>message ... before it gets edited</li>
         <li>So you might want to put the output of lint or phploc</li>
-        <li>Or the status of unit tests</li>
-        <li>into the commit message, then let the developer add their message</li>
+        <li>Or the status of unit tests into the commit message</li>
+        <li>then let the developer add their message</li>
+        <li>I'll show a short example that adds the branch name to the message</li>
     </ul>
 </section>
 
@@ -1287,7 +1288,8 @@ function lint($files, $tmpDir) {
         <li>The lint function is basically what we had before</li>
         <li>except now we've added a directory argument</li>
         <li>and added a check to see if the file exists</li>
-        <li>since getChangedFiles() doesn't differentiate between modified</li>
+        <li>since the old getChangedFiles() doesn't differentiate</li>
+        <li>between modified</li>
         <li>and deleted</li>
     </ul>
 </section>
